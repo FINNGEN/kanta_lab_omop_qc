@@ -4,6 +4,13 @@ from pathlib import Path
 import polars as pl
 
 
+DESCRIPTION = (
+    "I take the Kanta lab harmonization table from Google Sheet as a CSV, and "
+    "the FinRegistry Kanta stats on the lab values. From this I add the Top 10 "
+    "lab values for each row of the harmonization table."
+)
+
+
 def main():
     args = cli_init()
 
@@ -18,7 +25,7 @@ def main():
 
 
 def cli_init():
-    parser = ArgumentParser()
+    parser = ArgumentParser(description=DESCRIPTION)
 
     parser.add_argument(
         "--harmonization-table",
